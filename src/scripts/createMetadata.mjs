@@ -692,14 +692,14 @@ const shuffleArray = (array) => {
 };
 
 
-const outputDir = "metadataEtherlink";
+const outputDir = "metadataEtherlinkSingle";
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
 // Function to create individual JSON files
-const createMetadataFiles = (metadata) => {
+/*const createMetadataFiles = (metadata) => {
   metadata.forEach((item, index) => {
     const filePath = path.join(outputDir, `${index}`);
     fs.writeFile(filePath, JSON.stringify(item, null, 2), (err) => {
@@ -710,6 +710,17 @@ const createMetadataFiles = (metadata) => {
       }
     });
   });
+};*/
+
+const createMetadataFiles = (metadata) => {
+  const filePath = path.join(outputDir, `metadata.json`);
+    fs.writeFile(filePath, JSON.stringify(metadata, null, 2), (err) => {
+      if (err) {
+        console.error(`Error writing file for index ${index}:`, err);
+      } else {
+        console.log(`Metadata file created: ${filePath}`);
+      }
+    });
 };
 
 // Generate metadata
