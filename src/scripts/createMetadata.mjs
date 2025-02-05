@@ -692,7 +692,7 @@ const shuffleArray = (array) => {
 };
 
 
-const outputDir = "metadataEtherlinkSingle";
+const outputDir = "metadataEtherlink";
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });

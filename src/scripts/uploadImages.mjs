@@ -21,7 +21,7 @@ const jsonPath = path.join("/Users/cgold/Projects/br-skins/src/scripts", "images
 
 (async () => {
     const storage = new ThirdwebStorage({
-        secretKey: "SECRET_KEY",
+        secretKey: "EdHXxgajrV6rlc8sxIpTuZhBswNQ0EtWm0KRmRLF1VXx2o1Oq0PFn3CvT7eMIwvt_rRpIj_hCtduvALzEGf_ZA",
     });
     const results = [];
 
@@ -35,7 +35,8 @@ const jsonPath = path.join("/Users/cgold/Projects/br-skins/src/scripts", "images
             try {
                 const fullPath = path.join(outputDir, file);
                 console.log("Filename: ", fullPath);
-                const uri = await storage.upload(fullPath);
+                const fileData = await fs.promises.readFile(fullPath);
+                const uri = await storage.upload(fileData);
                 results.push({ file, uri });
                 console.info(`Uploaded ${file}: ${uri}`);
             } catch (uploadError) {
