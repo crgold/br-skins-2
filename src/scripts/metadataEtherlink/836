@@ -1,0 +1,15 @@
+{
+  "name": "The Dark Knight",
+  "description": "We need a description here",
+  "image": "ipfs://QmXpY1LGWTz34j9LGAgaT3vYeVTqNxP8oJYF25y4EWEwRz/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "377"
+    }
+  ]
+}

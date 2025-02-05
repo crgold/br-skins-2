@@ -1,0 +1,15 @@
+{
+  "name": "Commander of Knights",
+  "description": "We need a description here",
+  "image": "ipfs://QmYZZDVx1euhDEu8smQgTdQZuiT8J9U1sFPLYUhuGmLoGB/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "388"
+    }
+  ]
+}

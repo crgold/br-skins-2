@@ -1,0 +1,15 @@
+{
+  "name": "Swamp Monster",
+  "description": "We need a description here",
+  "image": "ipfs://QmX5nYtQyJzAoeWbw8TcFj7SttwDynyXG135yXXto2q25Q/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "405"
+    }
+  ]
+}

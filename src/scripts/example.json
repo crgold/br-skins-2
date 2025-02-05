@@ -1,0 +1,343 @@
+[
+    {
+      "name": "The Blades of Shadow",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "The Uruk Disciple",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Void Incarnate",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Commander of Knights",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Herald of the Curse",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Ubferbak Hound",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Burned Mage",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Undead Berserker",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Green with Anger",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Common"
+        }
+      ]
+    },
+    {
+      "name": "Uruk's Priest",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "The Animal Within",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Kabuto",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Undead General",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Golden Golem",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "The Hollow Warrior",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Herald of Damnation",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Dragonborn",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Lava Golem",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Rare"
+        }
+      ]
+    },
+    {
+      "name": "Golden Maiden",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "Cherub",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "Ascendent Succubus",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "The Dark Knight",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "Devoured by Chaos",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "Crystal Protector",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "Marked by Uruk",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Epic"
+        }
+      ]
+    },
+    {
+      "name": "The Scarlet Hunter",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    },
+    {
+      "name": "Winter Defender",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    },
+    {
+      "name": "Krampus",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Zephyr",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    },
+    {
+      "name": "The Lord of Sin",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    },
+    {
+      "name": "Swamp Monster",
+      "description": "Remember to replace this description",
+      "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+      "attributes": [
+        {
+          "trait_type": "Rarity",
+          "value": "Legendary"
+        }
+      ]
+    }
+  ]

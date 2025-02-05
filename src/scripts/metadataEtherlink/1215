@@ -1,0 +1,15 @@
+{
+  "name": "Herald of Damnation",
+  "description": "We need a description here",
+  "image": "ipfs://QmbLW9ZPVJm5rRELX9UVVeS1xDv4kZqKmMYMAaA9knKmzv/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "364"
+    }
+  ]
+}

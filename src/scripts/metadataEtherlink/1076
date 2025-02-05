@@ -1,0 +1,15 @@
+{
+  "name": "Krampus",
+  "description": "We need a description here",
+  "image": "ipfs://QmV3L48u2uZrPUpFSw2mWxvcwGrFFtvNZPVR7LKWbpWACm/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "ID",
+      "value": "459"
+    }
+  ]
+}

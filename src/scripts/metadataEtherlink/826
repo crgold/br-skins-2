@@ -1,0 +1,15 @@
+{
+  "name": "Undead Berserker",
+  "description": "We need a description here",
+  "image": "ipfs://QmQCyjXY1KaAqGaMWzBc9FfQpKdFLamjd92tfP7GxLvZFT/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "409"
+    }
+  ]
+}

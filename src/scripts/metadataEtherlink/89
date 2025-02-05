@@ -1,0 +1,15 @@
+{
+  "name": "Lava Golem",
+  "description": "We need a description here",
+  "image": "ipfs://QmU762tZ2PnKz7P61TDVPXUaJGJch9ReNWnbt3uUvXUV6i/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "400"
+    }
+  ]
+}

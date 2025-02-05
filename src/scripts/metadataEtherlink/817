@@ -1,0 +1,15 @@
+{
+  "name": "Scarlet Zephyr",
+  "description": "We need a description here",
+  "image": "ipfs://QmNYzq6nXBb23CJfoRnZJ2TNHQgjop6A5bLNysBGvgkCK6/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "ID",
+      "value": "434"
+    }
+  ]
+}

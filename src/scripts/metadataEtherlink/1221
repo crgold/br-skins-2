@@ -1,0 +1,15 @@
+{
+  "name": "Uruk_s Priest",
+  "description": "We need a description here",
+  "image": "ipfs://QmZ8Bf7VXhtH91ZrD6EGP4sLtnPEENMmLaLCxoE1datZZr/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "412"
+    }
+  ]
+}

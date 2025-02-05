@@ -1,0 +1,15 @@
+{
+  "name": "Ascendent Succubus",
+  "description": "We need a description here",
+  "image": "ipfs://QmZaPjotf5mYRy74k8jxshKiSTMVGRXodSNu8MrT1Xg5n7/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "354"
+    }
+  ]
+}

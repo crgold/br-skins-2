@@ -1,0 +1,15 @@
+{
+  "name": "Infernal Knight",
+  "description": "We need a description here",
+  "image": "ipfs://QmbExpX3BLhLw9iahsJX16mA7fj2iUgDNBykqZiKy5xBNx/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "397"
+    }
+  ]
+}

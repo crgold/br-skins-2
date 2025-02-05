@@ -1,0 +1,15 @@
+{
+  "name": "The Hollow Warrior",
+  "description": "We need a description here",
+  "image": "ipfs://QmQQHqbwWbFUQkWzejywfUqTmGL8wq42jXYLQoRU1FPDV9/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "408"
+    }
+  ]
+}

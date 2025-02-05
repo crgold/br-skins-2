@@ -1,0 +1,15 @@
+{
+  "name": "Uruk_s Disciple",
+  "description": "We need a description here",
+  "image": "ipfs://QmXxyCzCUboAc6rpQVx7HLE4ieoMwHMt9pyETL29gUeVNY/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "ID",
+      "value": "441"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Cherub",
+  "description": "We need a description here",
+  "image": "ipfs://QmXMyEaY12rA4GnNMghcHGteDPnmcQe3YM97UmHRtw7SjE/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "387"
+    }
+  ]
+}

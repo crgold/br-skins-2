@@ -1,0 +1,15 @@
+{
+  "name": "Blades of Shadow",
+  "description": "We need a description here",
+  "image": "ipfs://QmdXkHQ245jhQCxoYMggVK1z7k9yBMu4LnsrkWTqHHzsXR/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "385"
+    }
+  ]
+}

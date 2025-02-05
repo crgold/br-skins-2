@@ -1,0 +1,15 @@
+{
+  "name": "Scarlet Hunter",
+  "description": "We need a description here",
+  "image": "ipfs://QmbBBdZvke32v4Y8UjgMqw6rNCQh1zSLLr9RD8w42YwiMD/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "373"
+    }
+  ]
+}

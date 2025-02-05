@@ -1,0 +1,15 @@
+{
+  "name": "Undead General",
+  "description": "We need a description here",
+  "image": "ipfs://QmWsxQN4jxrekR9mbye2xLoN2kbaGokFASsdDoMay3qf2B/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "410"
+    }
+  ]
+}

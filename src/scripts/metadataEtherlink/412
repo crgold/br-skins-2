@@ -1,0 +1,15 @@
+{
+  "name": "Burned Mage",
+  "description": "We need a description here",
+  "image": "ipfs://QmRv7Gxx8tSbo6LR3k7F2Ptd8rDmCnHrzeqmCDejThPYRw/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "356"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Crystal Protector",
+  "description": "We need a description here",
+  "image": "ipfs://QmSnCUkDmv5UbeQy8zDif5tD4kHGprKu9qu7TjBE4m69qM/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "ID",
+      "value": "449"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Uruk_s Disciple",
+  "description": "We need a description here",
+  "image": "ipfs://QmeCvRjpMrNkuyY5tSn1g9yXsv4GCZRjxsdF9frtVSVVHf/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "411"
+    }
+  ]
+}

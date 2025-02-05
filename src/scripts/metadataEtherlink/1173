@@ -1,0 +1,15 @@
+{
+  "name": "Lord of Sin",
+  "description": "We need a description here",
+  "image": "ipfs://Qma6Uqhjd1Cc9dM1kbdLZ4suKfgT4nQgNjVic7Q9CFPLgR/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "401"
+    }
+  ]
+}

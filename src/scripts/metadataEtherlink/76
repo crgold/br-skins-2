@@ -1,0 +1,15 @@
+{
+  "name": "Kabuto",
+  "description": "We need a description here",
+  "image": "ipfs://Qme27u7AKY42Hys1HpvkaUAsnhMFfmTZFMKhD5CWXBjmQU/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "ID",
+      "value": "398"
+    }
+  ]
+}

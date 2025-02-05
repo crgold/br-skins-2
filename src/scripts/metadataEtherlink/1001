@@ -1,0 +1,15 @@
+{
+  "name": "The Animal Within",
+  "description": "We need a description here",
+  "image": "ipfs://QmTe6m9qj11amPyVFWvugr45Bymi6kmBqqNPttRGqKWVtb/0",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "ID",
+      "value": "376"
+    }
+  ]
+}
