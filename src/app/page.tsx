@@ -88,8 +88,6 @@ export default function Home() {
 		address: "0x4C2AA252BEe766D3399850569713b55178934849",
 	});
 
-	console.log(currency);
-
 	const currencyMetadata = useReadContract(getCurrencyMetadata, {
 		contract: currencyContract,
 		queryOptions: { enabled: !!currency },
