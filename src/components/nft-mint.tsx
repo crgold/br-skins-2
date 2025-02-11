@@ -69,7 +69,7 @@ export function NftMint(props: Props) {
 		return null;
 	}
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+		<div className="bg-medieval flex flex-col items-center justify-center min-h-screen">
 			<div className="absolute top-4 right-4">
 				<ConnectButton client={client} />
 			</div>
@@ -157,7 +157,7 @@ export function NftMint(props: Props) {
 				<CardFooter>
 					{account ? (
 						<ClaimButton
-							theme={"light"}
+							theme={"dark"}
 							contractAddress={props.contract.address}
 							chain={props.contract.chain}
 							client={props.contract.client}
@@ -185,8 +185,8 @@ export function NftMint(props: Props) {
 											}
 							}
 							style={{
-								backgroundColor: "black",
-								color: "white",
+								backgroundColor: "white",
+								color: "black",
 								width: "100%",
 							}}
 							disabled={isMinting}
@@ -199,7 +199,8 @@ export function NftMint(props: Props) {
 							Mint {quantity} NFT{quantity > 1 ? "s" : ""}
 						</ClaimButton>
 					) : (
-						<ConnectButton
+						<ConnectButton 
+							theme={"dark"}
 							client={client}
 							wallets={[wallet]}						  
 							connectButton={{ style: { width: "100%" } }}

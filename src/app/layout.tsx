@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
 import { Toaster } from "sonner";
 import { ToastProvider } from "@/components/ui/toast";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
+		<html lang="en" className="dark"> {/* Force dark mode */}
+			<body className={`dark ${inter.className}`}>
 				<ToastProvider>
-					<Toaster position="bottom-center" />
-					<ThirdwebProvider>{children}</ThirdwebProvider>
+				<Toaster position="bottom-center" />
+				<ThirdwebProvider>{children}</ThirdwebProvider>
 				</ToastProvider>
 			</body>
 		</html>

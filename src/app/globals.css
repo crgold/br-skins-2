@@ -51,31 +51,38 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+  --background: 30 10% 5%; /* Dark warm brown instead of pure black */
+  --foreground: 40 20% 95%; /* Light parchment-like white */
+  --card: 30 10% 8%; /* Dark brownish-gray for cards */
+  --card-foreground: 40 20% 90%;
+  --popover: 30 10% 8%;
+  --popover-foreground: 40 20% 90%;
+  --primary: 30 40% 55%; /* A warm golden brown */
+  --primary-foreground: 40 20% 95%;
+  --secondary: 30 15% 12%;
+  --secondary-foreground: 40 20% 90%;
+  --muted: 30 15% 14%;
+  --muted-foreground: 40 10% 60%;
+  --accent: 40 30% 35%; /* Slightly golden accent */
+  --accent-foreground: 40 20% 95%;
+  --destructive: 0 50% 30%; /* Deep red for danger */
+  --destructive-foreground: 40 20% 95%;
+  --border: 30 15% 20%; /* Aged gray-brown for softer borders */
+  --input: 30 15% 20%;
+  --ring: 40 30% 45%; /* Warmer focus rings */
+  --chart-1: 25 65% 40%; /* Rusty orange */
+  --chart-2: 120 45% 35%; /* Deep forest green */
+  --chart-3: 210 35% 30%; /* Faded blue */
+  --chart-4: 40 50% 50%; /* Warm gold */
+  --chart-5: 0 55% 35%; /* Deep crimson */
+}
+
+.bg-medieval {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/65a519e87c8164487c21c800/737af08c-d2a8-4c5b-a304-2efc8c45bfa5/s1_bg_b.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 }
 
 @layer base {
