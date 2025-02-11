@@ -76,16 +76,12 @@ export default function Home() {
 			? claimCondition721.data?.pricePerToken
 			: claimCondition20.data?.pricePerToken;
 
-	const currency = isERC1155Query.data
-		? claimCondition1155.data?.currency
-		: isERC721Query.data
-			? claimCondition721.data?.currency
-			: claimCondition20.data?.currency;
+	const currency = "0x4C2AA252BEe766D3399850569713b55178934849";
 
 	const currencyContract = getContract({
 		client,
 		chain,
-		address: "0x4C2AA252BEe766D3399850569713b55178934849",
+		address: currency || "",
 	});
 
 	const currencyMetadata = useReadContract(getCurrencyMetadata, {
