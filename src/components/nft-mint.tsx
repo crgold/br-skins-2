@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
-import type { ThirdwebContract } from "thirdweb";
+import { defineChain, type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
 	ConnectButton,
@@ -17,10 +17,20 @@ import {
 	NFT,
 	useActiveAccount,
 } from "thirdweb/react";
+import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
 import { Skeleton } from "./ui/skeleton";
+import { defaultChainId } from "@/lib/constants";
+
+//tezos ecosystem id => ecosystem.tezos
+//BR partner id           => 560d8fd8-ad56-47d1-bd40-e49424fdecbf
+
+const wallet = ecosystemWallet("ecosystem.tezos", {
+	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
+  });
+
 
 type Props = {
 	contract: ThirdwebContract;
@@ -92,7 +102,7 @@ export function NftMint(props: Props) {
 							/>
 						)}
 						<div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-sm font-semibold">
-							{props.pricePerToken} XTZ/each
+							{props.pricePerToken} {props.currencySymbol}/each
 						</div>
 					</div>
 					<h2 className="text-2xl font-bold mb-2 dark:text-white">
@@ -131,7 +141,7 @@ export function NftMint(props: Props) {
 							</Button>
 						</div>
 						<div className="text-base pr-1 font-semibold dark:text-white">
-							Total: {props.pricePerToken * quantity} XTZ
+							Total: {props.pricePerToken * quantity} {props.currencySymbol}
 						</div>
 					</div>
 
@@ -208,6 +218,7 @@ export function NftMint(props: Props) {
 					) : (
 						<ConnectButton
 							client={client}
+							wallets={[wallet]}						  
 							connectButton={{ style: { width: "100%" } }}
 						/>
 					)}
