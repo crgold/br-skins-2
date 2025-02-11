@@ -24,9 +24,6 @@ import { toast } from "sonner";
 import { Skeleton } from "./ui/skeleton";
 import { defaultChainId } from "@/lib/constants";
 
-//tezos ecosystem id => ecosystem.tezos
-//BR partner id           => 560d8fd8-ad56-47d1-bd40-e49424fdecbf
-
 const wallet = ecosystemWallet("ecosystem.tezos", {
 	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
   });
