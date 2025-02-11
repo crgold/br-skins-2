@@ -9,25 +9,21 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
-import { defineChain, type ThirdwebContract } from "thirdweb";
+import { type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
 	ConnectButton,
 	MediaRenderer,
-	NFT,
 	useActiveAccount,
 } from "thirdweb/react";
 import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
-import { Skeleton } from "./ui/skeleton";
-import { defaultChainId } from "@/lib/constants";
 
 const wallet = ecosystemWallet("ecosystem.tezos", {
 	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
   });
-
 
 type Props = {
 	contract: ThirdwebContract;
@@ -80,24 +76,14 @@ export function NftMint(props: Props) {
 			<Card className="w-full max-w-md">
 				<CardContent className="pt-6">
 					<div className="aspect-square overflow-hidden rounded-lg mb-4 relative">
-						{props.isERC1155 ? (
-							<NFT contract={props.contract} tokenId={props.tokenId}>
-								<React.Suspense
-									fallback={<Skeleton className="w-full h-full object-cover" />}
-								>
-									<NFT.Media className="w-full h-full object-cover" />
-								</React.Suspense>
-							</NFT>
-						) : (
-							<MediaRenderer
-								client={client}
-								className="w-full h-full object-cover"
-								alt=""
-								src={
-									props.contractImage || "/placeholder.svg?height=400&width=400"
-								}
-							/>
-						)}
+						<MediaRenderer
+							client={client}
+							className="w-full h-full object-cover"
+							alt=""
+							src={
+								props.contractImage || "/placeholder.svg?height=400&width=400"
+							}
+						/>
 						<div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-sm font-semibold">
 							{props.pricePerToken} {props.currencySymbol}/each
 						</div>

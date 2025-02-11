@@ -21,7 +21,7 @@ import {
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 import { useReadContract } from "thirdweb/react";
-
+//import {  } from "/Users/cgold/Projects/br-skins/src/thirdweb/128123/0x56ced5373deeb41ecbb8db2090fe0b452dab7cd1" 
 // This page renders on the client.
 // If you are looking for a server-rendered version, checkout src/ssr/page.tsx
 export default function Home() {
@@ -83,10 +83,12 @@ export default function Home() {
 			: claimCondition20.data?.currency;
 
 	const currencyContract = getContract({
-		address: currency || "",
-		chain,
 		client,
+		chain,
+		address: "0x4C2AA252BEe766D3399850569713b55178934849",
 	});
+
+	console.log(currency);
 
 	const currencyMetadata = useReadContract(getCurrencyMetadata, {
 		contract: currencyContract,
