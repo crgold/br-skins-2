@@ -15,6 +15,7 @@ import {
 	ConnectButton,
 	MediaRenderer,
 	useActiveAccount,
+	useActiveWalletChain
 } from "thirdweb/react";
 import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
@@ -46,6 +47,7 @@ export function NftMint(props: Props) {
 	const [customAddress, setCustomAddress] = useState("");
 	const { theme, setTheme } = useTheme();
 	const account = useActiveAccount();
+	const chain = useActiveWalletChain();
 
 	const decreaseQuantity = () => {
 		setQuantity((prev) => Math.max(1, prev - 1));
@@ -160,7 +162,7 @@ export function NftMint(props: Props) {
 					)}
 				</CardContent>
 				<CardFooter>
-					{account ? (
+					{account && (chain?.id === defaultChainId ) ? (
 						<ClaimButton
 							theme={"dark"}
 							contractAddress={props.contract.address}
@@ -209,6 +211,7 @@ export function NftMint(props: Props) {
 							wallets={[wallet]}	
 							chain={defineChain(defaultChainId)}					  
 							connectButton={{ style: { width: "100%" } }}
+							switchButton={{ style: { width: "100%" } }}
 						/>
 					)}
 				</CardFooter>
