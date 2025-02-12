@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
-import { type ThirdwebContract } from "thirdweb";
+import { defineChain, type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
 	ConnectButton,
@@ -20,6 +20,7 @@ import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
+import { defaultChainId } from "@/lib/constants";
 
 const wallet = ecosystemWallet("ecosystem.tezos", {
 	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
@@ -202,7 +203,8 @@ export function NftMint(props: Props) {
 						<ConnectButton 
 							theme={"dark"}
 							client={client}
-							wallets={[wallet]}						  
+							wallets={[wallet]}	
+							chain={defineChain(defaultChainId)}					  
 							connectButton={{ style: { width: "100%" } }}
 						/>
 					)}
