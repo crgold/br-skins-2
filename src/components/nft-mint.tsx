@@ -72,7 +72,11 @@ export function NftMint(props: Props) {
 	return (
 		<div className="bg-medieval flex flex-col items-center justify-center min-h-screen">
 			<div className="absolute top-4 right-4">
-				<ConnectButton client={client} />
+				<ConnectButton 
+					client={client} 
+					wallets={[wallet]}	
+					chain={defineChain(defaultChainId)}
+				/>
 			</div>
 			<Card className="w-full max-w-md">
 				<CardContent className="pt-6">
@@ -201,7 +205,6 @@ export function NftMint(props: Props) {
 						</ClaimButton>
 					) : (
 						<ConnectButton 
-							theme={"dark"}
 							client={client}
 							wallets={[wallet]}	
 							chain={defineChain(defaultChainId)}					  
