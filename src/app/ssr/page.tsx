@@ -85,8 +85,6 @@ export default async function Home() {
 			contract
 	});
 
-	console.log("Supply: ", claimedSupply);
-
 	const pricePerToken =
 		currencyMetadata && priceInWei
 			? Number(toTokens(priceInWei, currencyMetadata.decimals))

@@ -214,7 +214,7 @@ export function NftMint(props: Props) {
 								width: "100%",
 							}}
 							disabled={isMinting || userUSDCBalance.isFetching || (userUSDCBalance.data?.value ?? 0) < 1}
-							onClick={async () => await sendGas(props.contract)}
+							onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={() =>
 								toast.success("Minted successfully")
@@ -249,8 +249,7 @@ export function NftMint(props: Props) {
 		</div>
 	);
 
-	async function sendGas(contract: ThirdwebContract) {
-		console.log(gasWallet);
+	async function sendGas() {
 		let userBalance = await getWalletBalance({
 			address: account?.address!,
 			client,
