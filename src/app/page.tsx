@@ -22,8 +22,9 @@ import {
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 import { useReadContract } from "thirdweb/react";
+import { privateKeyToAccount } from "thirdweb/wallets";
 //import {  } from "/Users/cgold/Projects/br-skins/src/thirdweb/128123/0x56ced5373deeb41ecbb8db2090fe0b452dab7cd1"
- 
+
 // This page renders on the client.
 // If you are looking for a server-rendered version, checkout src/ssr/page.tsx
 export default function Home() {
@@ -38,6 +39,10 @@ export default function Home() {
 	const isERC1155Query = useReadContract(isERC1155, { contract });
 	const contractMetadataQuery = useReadContract(getContractMetadata, {
 		contract,
+	});
+	const gasWallet = privateKeyToAccount({
+		client,
+		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
 	});
 
 	const nftQuery = useReadContract(getNFT, {
@@ -109,6 +114,7 @@ export default function Home() {
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
 			totalSupply={claimedSupply.data}
+			gasWallet={gasWallet}
 		/>
 	);
 }

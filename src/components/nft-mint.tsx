@@ -22,8 +22,7 @@ import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
 import { defaultChainId } from "@/lib/constants";
-import { createWallet, getWalletBalance} from "thirdweb/wallets";
-import { gasWallet } from "@/lib/wallet";
+import { Account, createWallet, getWalletBalance} from "thirdweb/wallets";
 
 type Props = {
 	contract: ThirdwebContract;
@@ -35,6 +34,7 @@ type Props = {
 	isERC721: boolean;
 	tokenId: bigint;
 	totalSupply: bigint | undefined;
+	gasWallet: Account | null
 };
 
 export function NftMint(props: Props) {
@@ -180,7 +180,7 @@ export function NftMint(props: Props) {
 					)}
 				</CardContent>
 				<CardFooter>
-					{account && (chain?.id === props.contract.chain.id) ? (
+					{!props.gaswallet && account && (chain?.id === props.contract.chain.id) ? (
 						<ClaimButton
 							contractAddress={props.contract.address}
 							chain={props.contract.chain}
@@ -214,7 +214,7 @@ export function NftMint(props: Props) {
 								width: "100%",
 							}}
 							disabled={isMinting || userUSDCBalance.isFetching || (userUSDCBalance.data?.value ?? 0) < 1}
-							onClick={async () => await sendGas()}
+							onClick={async () => await sendGas(props.gaswallet!)}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={() =>
 								toast.success("Minted successfully")
@@ -249,7 +249,7 @@ export function NftMint(props: Props) {
 		</div>
 	);
 
-	async function sendGas() {
+	async function sendGas(gasWallet: Account) {
 		let userBalance = await getWalletBalance({
 			address: account?.address!,
 			client,

@@ -19,6 +19,7 @@ import {
 	isERC721,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
+import { privateKeyToAccount } from "thirdweb/wallets";
 
 // This page renders on the server
 // If you are looking for a client-rendered version, checkout src/page.tsx
@@ -48,6 +49,11 @@ export default async function Home() {
 				? getActiveClaimCondition20({ contract })
 				: undefined,
 		]);
+
+	const gasWallet = privateKeyToAccount({
+		client,
+		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY!
+	});
 
 	const displayName = isERC1155Query
 		? nftQuery?.metadata.name
@@ -101,6 +107,7 @@ export default async function Home() {
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
 			totalSupply={claimedSupply}
+			gasWallet={gasWallet}
 		/>
 	);
 }
