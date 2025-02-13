@@ -50,11 +50,6 @@ export default async function Home() {
 				: undefined,
 		]);
 
-	const gasWallet = privateKeyToAccount({
-		client,
-		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY!
-	});
-
 	const displayName = isERC1155Query
 		? nftQuery?.metadata.name
 		: contractMetadataQuery.data?.name;
@@ -107,7 +102,6 @@ export default async function Home() {
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
 			totalSupply={claimedSupply}
-			gasWallet={gasWallet}
 		/>
 	);
 }

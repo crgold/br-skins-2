@@ -40,10 +40,6 @@ export default function Home() {
 	const contractMetadataQuery = useReadContract(getContractMetadata, {
 		contract,
 	});
-	const gasWallet = privateKeyToAccount({
-		client,
-		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
-	});
 
 	const nftQuery = useReadContract(getNFT, {
 		contract,
@@ -114,7 +110,6 @@ export default function Home() {
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
 			totalSupply={claimedSupply.data}
-			gasWallet={gasWallet}
 		/>
 	);
 }
