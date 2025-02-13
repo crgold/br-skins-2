@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
-import { useTheme } from "next-themes";
+//import { useTheme } from "next-themes";
 import { defineChain, prepareTransaction, sendTransaction, toWei, type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
@@ -22,7 +22,8 @@ import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
 import { defaultChainId } from "@/lib/constants";
-import { Account, createWallet, getWalletBalance, privateKeyToAccount} from "thirdweb/wallets";
+import { createWallet, getWalletBalance, privateKeyToAccount } from "thirdweb/wallets";
+import {  } from "@/thirdweb/128123/0x56ced5373deeb41ecbb8db2090fe0b452dab7cd1";
 
 type Props = {
 	contract: ThirdwebContract;
@@ -42,20 +43,26 @@ export function NftMint(props: Props) {
 	const [quantity, setQuantity] = useState(1);
 	const [useCustomAddress, setUseCustomAddress] = useState(false);
 	const [customAddress, setCustomAddress] = useState("");
-	const { theme, setTheme } = useTheme();
+	//const { theme, setTheme } = useTheme();
 	const account = useActiveAccount();
 	const chain = useActiveWalletChain();
-	const userUSDCBalance = useWalletBalance({
+	const { data: userUSDCBalance, refetch: refetchBalance, isFetching } = useWalletBalance({
 		client,
 		tokenAddress: "0x4C2AA252BEe766D3399850569713b55178934849",
 		address: account?.address,
 		chain
 	});
 
+	const handleMintSuccess = async () => {
+		toast.success("Minted successfully");
+		// Refetch the balance after successful mint
+		await refetchBalance();
+	};
+
 	const gasWallet = privateKeyToAccount({
-			client,
-			privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
-		});
+		client,
+		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
+	});
 
 	const wallets = [
 		createWallet("io.metamask"),
@@ -217,15 +224,19 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={isMinting || userUSDCBalance.isFetching || (userUSDCBalance.data?.value ?? 0) < 1}
+							disabled={isMinting || isFetching || (userUSDCBalance?.value ?? 0) < 1}
 							onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
-							onTransactionConfirmed={() =>
-								toast.success("Minted successfully")
-							}
-							onError={(err) => toast.error(err.message)}
+							onTransactionConfirmed={handleMintSuccess}
+							onError={(err) => {
+								if(err.message.includes('DropClaimExceedLimit')) {
+									toast.error('You are not whitelisted or you have reached your mint limit');
+								} else {
+									toast.error(err.message);
+								};
+							}}
 						>
-							{((userUSDCBalance.data?.value ?? 0) < 1) ? 'Not Enough USDC': `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`} 
+							{((userUSDCBalance?.value ?? 0) < 1) ? 'Not Enough USDC' : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
 						</ClaimButton>
 					) : (
 						<ConnectButton
