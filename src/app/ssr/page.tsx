@@ -15,6 +15,7 @@ import {
 import { getCurrencyMetadata } from "thirdweb/extensions/erc20";
 import {
 	getActiveClaimCondition as getActiveClaimCondition721,
+	getTotalClaimedSupply,
 	isERC721,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
@@ -79,6 +80,10 @@ export default async function Home() {
 		: undefined;
 
 	const currencySymbol = currencyMetadata?.symbol || "";
+	
+	const claimedSupply = await getTotalClaimedSupply({
+			contract
+		});
 
 	const pricePerToken =
 		currencyMetadata && priceInWei
@@ -90,12 +95,12 @@ export default async function Home() {
 			contract={contract}
 			displayName={displayName || ""}
 			contractImage={contractMetadataQuery.data?.image || ""}
-			description={description || ""}
 			currencySymbol={currencySymbol}
 			pricePerToken={pricePerToken}
 			isERC1155={!!isERC1155Query}
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
+			totalSupply={claimedSupply}
 		/>
 	);
 }
