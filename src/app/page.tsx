@@ -75,7 +75,7 @@ export default function Home() {
 			? claimCondition721.data?.pricePerToken
 			: claimCondition20.data?.pricePerToken;
 
-	const currency = "0x4C2AA252BEe766D3399850569713b55178934849";
+	const currency = "0x796Ea11Fa2dD751eD01b53C372fFDB4AAa8f00F9";
 
 	const currencyContract = getContract({
 		client,
