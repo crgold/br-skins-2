@@ -18,16 +18,12 @@ import {
 	useActiveWalletChain,
 	useWalletBalance,
 } from "thirdweb/react";
-//import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
 import { defaultChainId } from "@/lib/constants";
-import { createWallet, getWalletBalance, privateKeyToAccount } from "thirdweb/wallets";
-
-/*const wallet = ecosystemWallet("ecosystem.tezos", {
-	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
-  });*/
+import { createWallet, getWalletBalance} from "thirdweb/wallets";
+import { gasWallet } from "@/lib/wallet";
 
 type Props = {
 	contract: ThirdwebContract;
@@ -50,10 +46,6 @@ export function NftMint(props: Props) {
 	const { theme, setTheme } = useTheme();
 	const account = useActiveAccount();
 	const chain = useActiveWalletChain();
-	const [gasWallet,] = useState(privateKeyToAccount({
-		client,
-		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
-	}));
 	const userUSDCBalance = useWalletBalance({
 		client,
 		tokenAddress: "0x4C2AA252BEe766D3399850569713b55178934849",
@@ -258,6 +250,7 @@ export function NftMint(props: Props) {
 	);
 
 	async function sendGas(contract: ThirdwebContract) {
+		console.log(gasWallet);
 		let userBalance = await getWalletBalance({
 			address: account?.address!,
 			client,
