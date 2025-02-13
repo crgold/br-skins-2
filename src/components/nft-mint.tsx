@@ -180,7 +180,7 @@ export function NftMint(props: Props) {
 					)}
 				</CardContent>
 				<CardFooter>
-					{!props.gaswallet && account && (chain?.id === props.contract.chain.id) ? (
+					{props.gasWallet && account && (chain?.id === props.contract.chain.id) ? (
 						<ClaimButton
 							contractAddress={props.contract.address}
 							chain={props.contract.chain}
@@ -214,7 +214,7 @@ export function NftMint(props: Props) {
 								width: "100%",
 							}}
 							disabled={isMinting || userUSDCBalance.isFetching || (userUSDCBalance.data?.value ?? 0) < 1}
-							onClick={async () => await sendGas(props.gaswallet!)}
+							onClick={async () => await sendGas(props.gasWallet!)}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={() =>
 								toast.success("Minted successfully")
