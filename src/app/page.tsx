@@ -18,6 +18,7 @@ import { getCurrencyMetadata } from "thirdweb/extensions/erc20";
 import {
 	getActiveClaimCondition as getActiveClaimCondition721,
 	isERC721,
+	getTotalClaimedSupply
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 import { useReadContract } from "thirdweb/react";
@@ -66,10 +67,6 @@ export default function Home() {
 		? nftQuery.data?.metadata.name
 		: contractMetadataQuery.data?.name;
 
-	const description = isERC1155Query.data
-		? nftQuery.data?.metadata.description
-		: contractMetadataQuery.data?.description;
-
 	const priceInWei = isERC1155Query.data
 		? claimCondition1155.data?.pricePerToken
 		: isERC721Query.data
@@ -91,6 +88,10 @@ export default function Home() {
 
 	const currencySymbol = currencyMetadata.data?.symbol || "";
 
+	const supply = useReadContract(getTotalClaimedSupply, {
+		contract
+	});
+
 	const pricePerToken =
 		currencyMetadata.data && priceInWei !== null && priceInWei !== undefined
 			? Number(toTokens(priceInWei, currencyMetadata.data.decimals))
@@ -101,12 +102,12 @@ export default function Home() {
 			contract={contract}
 			displayName={displayName || ""}
 			contractImage={contractMetadataQuery.data?.image || ""}
-			description={description || ""}
 			currencySymbol={currencySymbol}
 			pricePerToken={pricePerToken}
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
+			totalSupply={supply.data}
 		/>
 	);
 }

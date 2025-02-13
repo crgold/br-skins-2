@@ -9,34 +9,36 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
-import { defineChain, type ThirdwebContract } from "thirdweb";
+import { defineChain, prepareTransaction, sendTransaction, toWei, type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
 	ConnectButton,
 	MediaRenderer,
 	useActiveAccount,
-	useActiveWalletChain
+	useActiveWalletChain,
+	useWalletBalance,
 } from "thirdweb/react";
-import { ecosystemWallet } from "thirdweb/wallets";
+//import { ecosystemWallet } from "thirdweb/wallets";
 import { client } from "@/lib/thirdwebClient";
 import React from "react";
 import { toast } from "sonner";
 import { defaultChainId } from "@/lib/constants";
+import { createWallet, getWalletBalance, privateKeyToAccount } from "thirdweb/wallets";
 
-const wallet = ecosystemWallet("ecosystem.tezos", {
+/*const wallet = ecosystemWallet("ecosystem.tezos", {
 	partnerId: "560d8fd8-ad56-47d1-bd40-e49424fdecbf",
-  });
+  });*/
 
 type Props = {
 	contract: ThirdwebContract;
 	displayName: string;
-	description: string;
 	contractImage: string;
 	pricePerToken: number | null;
 	currencySymbol: string | null;
 	isERC1155: boolean;
 	isERC721: boolean;
 	tokenId: bigint;
+	totalSupply: bigint | undefined;
 };
 
 export function NftMint(props: Props) {
@@ -48,6 +50,24 @@ export function NftMint(props: Props) {
 	const { theme, setTheme } = useTheme();
 	const account = useActiveAccount();
 	const chain = useActiveWalletChain();
+	const [gasWallet,] = useState(privateKeyToAccount({
+		client,
+		privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY as string
+	}));
+	const userUSDCBalance = useWalletBalance({
+		client,
+		tokenAddress: "0x4C2AA252BEe766D3399850569713b55178934849",
+		address: account?.address,
+		chain
+	});
+
+	const wallets = [
+		createWallet("io.metamask"),
+		createWallet("io.rabby"),
+		createWallet("com.trustwallet.app"),
+		createWallet("me.rainbow"),
+		createWallet("io.zerion.wallet"),
+	];
 
 	const decreaseQuantity = () => {
 		setQuantity((prev) => Math.max(1, prev - 1));
@@ -74,10 +94,16 @@ export function NftMint(props: Props) {
 	return (
 		<div className="bg-medieval flex flex-col items-center justify-center min-h-screen">
 			<div className="absolute top-4 right-4">
-				<ConnectButton 
-					client={client} 
-					wallets={[wallet]}	
+				<ConnectButton
+					client={client}
+					wallets={wallets}
 					chain={defineChain(defaultChainId)}
+					connectModal={{
+						size: "compact",
+						title: "Battlerise",
+						titleIcon:
+							"https://images.squarespace-cdn.com/content/v1/65a519e87c8164487c21c800/e006eb27-ccde-441e-9bb3-843d7eef24f0/favicon.ico?format=100w",
+					}}
 				/>
 			</div>
 			<Card className="w-full max-w-md">
@@ -99,7 +125,7 @@ export function NftMint(props: Props) {
 						{props.displayName}
 					</h2>
 					<p className="text-gray-600 dark:text-gray-300 mb-4">
-						{props.description}
+						{props.totalSupply?.toString()} of 1500 Minted
 					</p>
 					<div className="flex items-center justify-between mb-4">
 						<div className="flex items-center">
@@ -162,54 +188,60 @@ export function NftMint(props: Props) {
 					)}
 				</CardContent>
 				<CardFooter>
-					{account && (chain?.id === defaultChainId ) ? (
+					{account && (chain?.id === props.contract.chain.id) ? (
 						<ClaimButton
-							theme={"dark"}
 							contractAddress={props.contract.address}
 							chain={props.contract.chain}
 							client={props.contract.client}
 							claimParams={
 								props.isERC1155
 									? {
-											type: "ERC1155",
-											tokenId: props.tokenId,
+										type: "ERC1155",
+										tokenId: props.tokenId,
+										quantity: BigInt(quantity),
+										to: customAddress,
+										from: account.address,
+									}
+									: props.isERC721
+										? {
+											type: "ERC721",
 											quantity: BigInt(quantity),
 											to: customAddress,
 											from: account.address,
 										}
-									: props.isERC721
-										? {
-												type: "ERC721",
-												quantity: BigInt(quantity),
-												to: customAddress,
-												from: account.address,
-											}
 										: {
-												type: "ERC20",
-												quantity: String(quantity),
-												to: customAddress,
-												from: account.address,
-											}
+											type: "ERC20",
+											quantity: String(quantity),
+											to: customAddress,
+											from: account.address,
+										}
 							}
 							style={{
 								backgroundColor: "white",
 								color: "black",
 								width: "100%",
 							}}
-							disabled={isMinting}
+							disabled={isMinting || userUSDCBalance.isFetching || (userUSDCBalance.data?.value ?? 0) < 1}
+							onClick={async () => await sendGas(props.contract)}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={() =>
 								toast.success("Minted successfully")
 							}
 							onError={(err) => toast.error(err.message)}
 						>
-							Mint {quantity} NFT{quantity > 1 ? "s" : ""}
+							{((userUSDCBalance.data?.value ?? 0) < 1) ? 'Not Enough USDC': `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`} 
 						</ClaimButton>
 					) : (
-						<ConnectButton 
+						<ConnectButton
 							client={client}
-							wallets={[wallet]}	
-							chain={defineChain(defaultChainId)}					  
+							wallets={wallets}
+							chain={defineChain(defaultChainId)}
+							connectModal={{
+								size: "compact",
+								title: "Battlerise",
+								titleIcon:
+									"https://images.squarespace-cdn.com/content/v1/65a519e87c8164487c21c800/e006eb27-ccde-441e-9bb3-843d7eef24f0/favicon.ico?format=100w",
+							}}
 							connectButton={{ style: { width: "100%" } }}
 							switchButton={{ style: { width: "100%" } }}
 						/>
@@ -224,4 +256,53 @@ export function NftMint(props: Props) {
 			)}
 		</div>
 	);
+
+	async function sendGas(contract: ThirdwebContract) {
+		let userBalance = await getWalletBalance({
+			address: account?.address!,
+			client,
+			chain: chain!
+		});
+
+		let gasBalance = await getWalletBalance({
+			address: gasWallet?.address!,
+			client,
+			chain: chain!
+		});
+
+		const transaction = prepareTransaction({
+			to: account?.address,
+			chain: defineChain(defaultChainId),
+			client: client,
+			value: toWei("0.003"),
+		});
+
+		console.log("Wallet Balance: ", userBalance.displayValue);
+		console.log("Gas Wallet Balence: ", gasBalance.displayValue)
+
+		if (Number(userBalance.displayValue) < 0.003) {
+			const { transactionHash } = await sendTransaction({
+				account: gasWallet,
+				transaction: transaction
+			});
+			console.log("Sent gas: ", transactionHash);
+		} else {
+			console.log("User has enough gas");
+		}
+
+		userBalance = await getWalletBalance({
+			address: account?.address!,
+			client,
+			chain: chain!
+		});
+
+		gasBalance = await getWalletBalance({
+			address: gasWallet?.address!,
+			client,
+			chain: chain!
+		});
+
+		console.log("Wallet Balence After: ", userBalance.displayValue);
+		console.log("Gas Wallet Balence After: ", gasBalance.displayValue)
+	}
 }
