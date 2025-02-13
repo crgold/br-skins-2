@@ -83,7 +83,9 @@ export default async function Home() {
 	
 	const claimedSupply = await getTotalClaimedSupply({
 			contract
-		});
+	});
+
+	console.log("Supply: ", claimedSupply);
 
 	const pricePerToken =
 		currencyMetadata && priceInWei
