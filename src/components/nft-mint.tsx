@@ -270,13 +270,13 @@ export function NftMint(props: Props) {
 			to: account?.address,
 			chain: defineChain(defaultChainId),
 			client: client,
-			value: toWei("0.003"),
+			value: toWei("0.0038"),
 		});
 
 		console.log("Wallet Balance: ", userBalance.displayValue);
 		console.log("Gas Wallet Balence: ", gasBalance.displayValue)
 
-		if (Number(userBalance.displayValue) < 0.003) {
+		if (Number(userBalance.displayValue) < 0.0038) {
 			const { transactionHash } = await sendTransaction({
 				account: gasWallet,
 				transaction: transaction
