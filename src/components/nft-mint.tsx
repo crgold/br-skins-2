@@ -23,7 +23,6 @@ import React from "react";
 import { toast } from "sonner";
 import { defaultChainId } from "@/lib/constants";
 import { createWallet, getWalletBalance, privateKeyToAccount } from "thirdweb/wallets";
-import {  } from "@/thirdweb/128123/0x56ced5373deeb41ecbb8db2090fe0b452dab7cd1";
 
 type Props = {
 	contract: ThirdwebContract;
@@ -48,7 +47,7 @@ export function NftMint(props: Props) {
 	const chain = useActiveWalletChain();
 	const { data: userUSDCBalance, refetch: refetchBalance, isFetching } = useWalletBalance({
 		client,
-		tokenAddress: "0x4C2AA252BEe766D3399850569713b55178934849",
+		tokenAddress: "0x796Ea11Fa2dD751eD01b53C372fFDB4AAa8f00F9",
 		address: account?.address,
 		chain
 	});
