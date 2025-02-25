@@ -45,9 +45,8 @@ export function NftMint(props: Props) {
 	//const { theme, setTheme } = useTheme();
 	const account = useActiveAccount();
 	const chain = useActiveWalletChain();
-	const { data: userUSDCBalance, refetch: refetchBalance, isFetching } = useWalletBalance({
+	const { data: userBeamBalance, refetch: refetchBalance, isFetching } = useWalletBalance({
 		client,
-		tokenAddress: "0x796Ea11Fa2dD751eD01b53C372fFDB4AAa8f00F9",
 		address: account?.address,
 		chain
 	});
@@ -223,7 +222,7 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={isMinting || isFetching || (userUSDCBalance?.value ?? 0) < 1}
+							disabled={isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1}
 							onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
@@ -235,7 +234,7 @@ export function NftMint(props: Props) {
 								};
 							}}
 						>
-							{((userUSDCBalance?.value ?? 0) < 1) ? 'Not Enough USDC' : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
+							{((userBeamBalance?.value ?? 0) < 0.01) ? 'Not Enough BEAM' : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
 						</ClaimButton>
 					) : (
 						<ConnectButton
