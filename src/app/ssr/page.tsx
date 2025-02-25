@@ -5,7 +5,7 @@ import {
 	defaultTokenId,
 } from "@/lib/constants";
 import { client } from "@/lib/thirdwebClient";
-import { defineChain, getContract, toTokens } from "thirdweb";
+import { defineChain, getContract, NATIVE_TOKEN_ADDRESS, toTokens } from "thirdweb";
 import { getContractMetadata } from "thirdweb/extensions/common";
 import {
 	getActiveClaimCondition as getActiveClaimCondition1155,
@@ -19,11 +19,11 @@ import {
 	isERC721,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
-import { privateKeyToAccount } from "thirdweb/wallets";
 
 // This page renders on the server
 // If you are looking for a client-rendered version, checkout src/page.tsx
 export default async function Home() {
+	console.error("entering");
 	const tokenId = defaultTokenId;
 	const chain = defineChain(defaultChainId);
 	const contract = getContract({
@@ -73,8 +73,7 @@ export default async function Home() {
 	const currencyMetadata = currency
 		? await getCurrencyMetadata({
 				contract: getContract({
-					//address: currency || "",
-					address: "",
+					address: NATIVE_TOKEN_ADDRESS,
 					chain,
 					client,
 				}),

@@ -7,7 +7,7 @@ import {
 	defaultTokenId,
 } from "@/lib/constants";
 import { client } from "@/lib/thirdwebClient";
-import { defineChain, getContract, toTokens } from "thirdweb";
+import { defineChain, getContract, NATIVE_TOKEN_ADDRESS, toTokens } from "thirdweb";
 import { getContractMetadata } from "thirdweb/extensions/common";
 import {
 	getActiveClaimCondition as getActiveClaimCondition1155,
@@ -75,12 +75,16 @@ export default function Home() {
 			? claimCondition721.data?.pricePerToken
 			: claimCondition20.data?.pricePerToken;
 
-	const currency = "0x796Ea11Fa2dD751eD01b53C372fFDB4AAa8f00F9";
+	const currency = isERC1155Query.data
+	? claimCondition1155.data?.currency
+	: isERC721Query.data
+		? claimCondition721.data?.currency
+		: claimCondition20.data?.currency;
 
 	const currencyContract = getContract({
 		client,
 		chain,
-		address: currency || "",
+		address: NATIVE_TOKEN_ADDRESS || "",
 	});
 
 	const currencyMetadata = useReadContract(getCurrencyMetadata, {
