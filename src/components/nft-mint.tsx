@@ -223,7 +223,7 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={true && isMinting || isFetching || (userUSDCBalance?.value ?? 0) < 1}
+							disabled={isMinting || isFetching || (userUSDCBalance?.value ?? 0) < 1}
 							onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
@@ -235,7 +235,7 @@ export function NftMint(props: Props) {
 								};
 							}}
 						>
-							Sold Out!
+							{((userUSDCBalance?.value ?? 0) < 1) ? 'Not Enough USDC' : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
 						</ClaimButton>
 					) : (
 						<ConnectButton
