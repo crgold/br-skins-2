@@ -223,7 +223,7 @@ export function NftMint(props: Props) {
 								width: "100%",
 							}}
 							disabled={isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1}
-							onClick={async () => await sendGas()}
+							//onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
 							onError={(err) => {
