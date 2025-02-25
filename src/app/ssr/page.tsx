@@ -73,7 +73,8 @@ export default async function Home() {
 	const currencyMetadata = currency
 		? await getCurrencyMetadata({
 				contract: getContract({
-					address: currency || "",
+					//address: currency || "",
+					address: "",
 					chain,
 					client,
 				}),
