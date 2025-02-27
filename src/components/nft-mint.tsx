@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Minus, Plus } from "lucide-react";
 //import { useTheme } from "next-themes";
-import { defineChain, prepareTransaction, sendTransaction, toWei, type ThirdwebContract } from "thirdweb";
+import { defineChain, prepareTransaction, sendTransaction, toEther, toWei, type ThirdwebContract } from "thirdweb";
 import {
 	ClaimButton,
 	ConnectButton,
@@ -52,7 +52,7 @@ export function NftMint(props: Props) {
 	});
 
 	if (userBeamBalance) {
-		console.error(userBeamBalance.value);
+		console.error(toEther(userBeamBalance.value));
 	} else {
 		console.error("Null wtf");
 	}
@@ -228,7 +228,7 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={ (props.totalSupply === 1500n) || isMinting || isFetching || (userBeamBalance?.value ?? 0) < 176}
+							disabled={ (props.totalSupply === 1500n) || isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1760}
 							//onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
@@ -243,7 +243,7 @@ export function NftMint(props: Props) {
 						>
 							{(props.totalSupply === 1500n) 
 								? 'Sold Out!' 
-								: ((toWei(userBeamBalance?.value?.toString() ?? 'O')) < 176) 
+								: ((parseInt(toEther(userBeamBalance?.value ?? 0n))) < 1760) 
 									? 'Not Enough BEAM' 
 									: `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`
 							}
