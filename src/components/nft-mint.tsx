@@ -52,9 +52,7 @@ export function NftMint(props: Props) {
 	});
 
 	if (userBeamBalance) {
-		console.error(toEther(userBeamBalance.value));
-	} else {
-		console.error("Null wtf");
+		console.log(toEther(userBeamBalance.value));
 	}
 
 	const handleMintSuccess = async () => {
@@ -228,7 +226,7 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={ (props.totalSupply === 1500n) || isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1760}
+							disabled={ (props.totalSupply === 1500n) || isMinting || isFetching || (userBeamBalance?.value ?? 0) < props.pricePerToken}
 							//onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
@@ -243,7 +241,7 @@ export function NftMint(props: Props) {
 						>
 							{(props.totalSupply === 1500n) 
 								? 'Sold Out!' 
-								: ((parseInt(toEther(userBeamBalance?.value ?? 0n))) < 1760) 
+								: ((parseInt(toEther(userBeamBalance?.value ?? 0n))) < props.pricePerToken) 
 									? 'Not Enough BEAM' 
 									: `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`
 							}
