@@ -23,7 +23,6 @@ import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/e
 // This page renders on the server
 // If you are looking for a client-rendered version, checkout src/page.tsx
 export default async function Home() {
-	console.error("entering");
 	const tokenId = defaultTokenId;
 	const chain = defineChain(defaultChainId);
 	const contract = getContract({
