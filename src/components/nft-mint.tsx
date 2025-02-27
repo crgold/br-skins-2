@@ -51,6 +51,12 @@ export function NftMint(props: Props) {
 		chain
 	});
 
+	if (userBeamBalance) {
+		console.error(userBeamBalance.value);
+	} else {
+		console.error("Null wtf");
+	}
+
 	const handleMintSuccess = async () => {
 		toast.success("Minted successfully");
 		// Refetch the balance after successful mint
@@ -222,19 +228,26 @@ export function NftMint(props: Props) {
 								color: "black",
 								width: "100%",
 							}}
-							disabled={isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1}
+							disabled={ (props.totalSupply === 1500n) || isMinting || isFetching || (userBeamBalance?.value ?? 0) < 1760}
 							//onClick={async () => await sendGas()}
 							onTransactionSent={() => toast.info("Minting NFT")}
 							onTransactionConfirmed={handleMintSuccess}
 							onError={(err) => {
 								if(err.message.includes('DropClaimExceedLimit')) {
-									toast.error('You are not whitelisted or you have reached your mint limit');
+									//toast.error('You are not whitelisted or you have reached your mint limit');
+									toast.error('Mint not yet open or has been sold out');
 								} else {
 									toast.error(err.message);
 								};
 							}}
 						>
-							{((userBeamBalance?.value ?? 0) < 0.01) ? 'Not Enough BEAM' : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
+							{(props.totalSupply === 1500n) 
+								? 'Sold Out!' 
+								: ((userBeamBalance?.value ?? 0) < 1760) 
+									? 'Not Enough BEAM' 
+									: `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`
+							}
+
 						</ClaimButton>
 					) : (
 						<ConnectButton
